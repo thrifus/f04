@@ -1,0 +1,30 @@
+#!/bin/bash
+
+#————————————————————————————————————————————
+#———  f04 — /r/f04cb41f154db2f05a4a Mimicker
+#———  Created by: Patrick Hart
+#———  http://thrifus.co/
+#————————————————————————————————————————————
+
+fencoded=$(cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 8)
+
+#——— Credit for the `scramble` function goes to http://stackoverflow.com/users/1815797/gniourf-gniourf
+#——— Only using it until I get back from a trip because I don't have time to write something myself
+function scramble {
+    local a=$1 i
+    scrambled=
+    while((${#a})); do
+        ((i=RANDOM%${#a}))
+        scrambled+=${a:i:1}
+        a=${a::i}${a:i+1}
+    done
+}
+
+function fencode {
+    echo
+    scramble $fencoded
+    for i in {0..9}; do echo -n $(scramble $scrambled; echo $scrambled | sort -r | sed "s/^[0-9]+ //"); echo; done
+    echo $fencoded | sed "s/.\{2\}$/==/"
+    echo
+}
+trap fencode EXIT
