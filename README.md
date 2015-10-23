@@ -7,4 +7,4 @@ I'll re-write the `scramble` function when I get back from my trip on Sunday (10
 
 <br>
 
--*: Occasionally looks like it, not always though.  As someone pointer out, the Base seems to be encrypted with a Caesar Shift Cipher because of the, another said there was a pattern with the data, and another has an amazing theory._
+-\*: Occasionally looks like it, not always though.  As someone pointer out, the Base seems to be encrypted with a Caesar Shift Cipher because of the, another said there was a pattern with the data, and another has an amazing theory._
