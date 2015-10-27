@@ -13,10 +13,10 @@ BREWCHECK=$(if [[ $(which brew) = "brew not found" ]]; then echo shuf; else echo
 FENCODE() {
     echo
     for i in {0..8}; do
-        echo -n $(echo $RAND|base64 || echo $URAND|base64) | fold -w 1 | $BREWCHECK | tr -d '\n'
+        echo -n $(echo $RAND|base64 || echo $URAND|base64) | fold -w 1 | $BREWCHECK | tr -d '\n' | head -c 8
         echo
     done
-    echo $(echo $RAND|base64 || echo $URAND|base64) | sed "s/.\{1\}$/=/"
+    echo $(echo $RAND|base64 || echo $URAND|base64) | head -c 8 | sed "s/.\{1\}$/=/"
     echo
 }
 trap FENCODE EXIT
