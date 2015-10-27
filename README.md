@@ -3,8 +3,8 @@ __An [/r/f04cb41f154db2f05a4a](http://reddit.com/r/f04cb41f154db2f05a4a) mimicke
 
 Creates random data that appears to be encoded with Base64 and then encoded with another form of cipher*.
 
-NOTE:
-I'll re-write the `scramble` function when I get back from my trip on Sunday (10/25/2015).
+~~NOTE:~~
+~~I'll re-write the `scramble` function when I get back from my trip on Sunday (10/25/2015).~~
 
 <br>
 
