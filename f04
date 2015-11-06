@@ -1,22 +1,19 @@
 #!/bin/bash
-
 #——————————————————————————————————————————————
 #———  f04 — An /r/f04cb41f154db2f05a4a Mimicker
 #———  Created by: Patrick Hart
 #———  http://thrifus.co/
 #——————————————————————————————————————————————
-
-URAND=$(cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-pA-p0-9' | head -c 8)
-RAND=$(cat /dev/random | env LC_CTYPE=C tr -dc 'a-pA-P0-9' | head -c 8)
-BREWCHECK=$(if [[ $(which brew) = "brew not found" ]]; then echo shuf; else echo gshuf; fi)
-
-FENCODE() {
+URAND=$(cat /dev/urandom|env LC_CTYPE=C tr -dc 'a-zA-Z0-9'|head -c 8)
+RAND=$(cat /dev/random|env LC_CTYPE=C tr -dc 'a-zA-Z0-9'|head -c 8)
+BREWCHECK=$(if [ $(which brew) = "brew not found" ];then echo shuf;else echo gshuf;fi)
+GARBLE(){
+  echo
+  for i in {0..8};do
+    echo -n $(echo $RAND|base64||echo $URAND|base64)|fold -w 1|$BREWCHECK|tr -d '\n'|head -c 8
     echo
-    for i in {0..8}; do
-        echo -n $(echo $RAND|base64 || echo $URAND|base64) | fold -w 1 | $BREWCHECK | tr -d '\n' | head -c 8
-        echo
-    done
-    echo $(echo $RAND|base64 || echo $URAND|base64) | head -c 8 | sed "s/.\{1\}$/=/"
-    echo
+  done
+  echo $(echo $RAND|base64||echo $URAND|base64)|head -c 8|sed "s/.\{1\}$/=/"
+  echo
 }
-trap FENCODE EXIT
+GARBLE
