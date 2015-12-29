@@ -9,5 +9,5 @@ _*: Occasionally looks like it, not always though.  As [someone](https://www.red
 
 <br>
 
-## Installation:
+### Installation:
 `sudo curl -# https://raw.githubusercontent.com/thrifus/f04/master/install.sh | sh`
