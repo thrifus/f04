@@ -1,9 +1,11 @@
 #!/bin/bash
-###############################################
-####  f04 — An /r/f04cb41f154db2f05a4a Mimicker
-####  Created by: Patrick Hart
-####  http://thrifus.co/
-###############################################
+#########################################################
+####                                                 ####
+####    f04 - An /r/f04cb41f154db2f05a4a Mimicker    ####
+####            Created by: Patrick Hart             ####
+####               http://thrifus.co/                ####
+####                                                 ####
+#########################################################
 URAND=$(cat /dev/urandom|env LC_CTYPE=C tr -dc 'a-zA-Z0-9'|head -c 8)
 RAND=$(cat /dev/random|env LC_CTYPE=C tr -dc 'a-zA-Z0-9'|head -c 8)
 BREWCHECK=$(if [ $(which brew) = "brew not found" ];then echo shuf;else echo gshuf;fi)
